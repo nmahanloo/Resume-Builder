@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+  <body>
+    <div id="application">
+      <div id="content">
+        <div id="mainArea">
+          <div id="pageTitle">
+            <img id="titleLogo" src="/img/rs.png" alt="resume2Success">
+          </div>
+          <div id="sectionTitle">New User</div><br>
+          <form class="forms" method="POST" action="/signup">
+            <span class="itemName">Username:</span>
+            <input type="text" id="username" name="username"><br>
+            <span class="itemName">Password:</span>
+            <input type="password" id="password" name="password"><br>
+            <span class="itemName">Password Confirm:</span>
+            <input type="password" id="passwordConfirm" name="passwordConfirm"><br><br>
+            <div class="formButton">
+              <button id="signupButton">Sign up</button><br>
+            </div>
+          </form>
+          <br/>
+          <% if (typeof message != "undefined") { %>
+            <div id="message"><%= message %></div><br>
+          <% } %>
+          <a id="loginLink" href="/">Cancel</a>
+          <br><br/>
+        </div>
+      </div>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

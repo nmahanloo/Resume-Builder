@@ -1,0 +1,227 @@
+<!-- Unable to properly implement the edit view before the deadline. 
+
+     <%- include("partials/header.ejs") %>
+     <body>
+       <div id="application">
+         <div id="menu">
+           <img id="menuLogo" src="/img/rs.png" alt="resume2Success">
+           <div id="upperMenuItems">
+             <a class="menuItem" id="dashboard" href="/dashboard">Dashboard</a><br><br>
+             <a class="menuItem" id="editResume" href="/resume/edit">Edit Resume</a><br><br>
+             <div id="breadcrumb"></div>
+           </div>
+           <div id="lowerMenuItems">
+             <a class="menuItem" id="passwordChange" href="/passwordChange">Password Change</a><br>
+             <a class="menuItem" id="logout" href="/sessionDestroy">Logout</a>
+           </div>
+           <br/>
+         </div>
+         <div id="content">
+             <div id="mainArea">
+               <div id="sectionHeader">
+                 <h1 id="headerTitle">Edit Resume</h1>
+               </div>
+               <form action="/resume/edit" id="editResumeForm" method="post">
+                   <section id="generalInformation" class="form-section">
+                     <h2>General Information</h2>
+                     <div id="generalSection">
+                       <div class="generalEntry">                        
+                         <label for="firstName">First Name:<span class="required">*</span></label>
+                         <input type="text" id="firstName" name="firstName" required placeholder="John" maxlength="45" value="<%=resume.firstName%>"><br>
+                         <label for="lastName">Last Name:<span class="required">*</span></label>
+                         <input type="text" id="lastName" name="lastName" required placeholder="Doe" maxlength="45" value="<%=resume.lastName%>"><br>
+                         <label for="email">Email Address:<span class="required">*</span></label>
+                         <input type="email" id="email" name="email" required placeholder="User@Domain.com" maxlength="100" value="<%=resume.email%>"><br>
+                         <label for="phone">Phone:<span class="required">*</span></label>
+                         <input type="tel" id="phone" name="phone" required placeholder="916-867-5309" value="<%=resume.phone%>"><br>
+
+                         <label for="zipcode">Zipcode:</label>
+                         <input type="text" id="zipcode" name="zipcode" placeholder="90210" value="<%=resume.zipcode%>"><br>
+                         <span id="zipcodeError"></span>
+
+                         <label for="city">City:<span class="required">*</span></label>
+                         <input type="text" id="city" name="city" required placeholder="Sacramento" maxlength="45" value="<%=resume.city%>"><br>
+                         <label for="state">State:<span class="required">*</span></label>
+                         <input type="text" id="state" name="state" required placeholder="California" maxlength="45" value="<%=resume.state%>"><br>
+                         <label for="country">Country:<span class="required">*</span></label>
+                         <input type="text" id="country" name="country" required placeholder="United States" maxlength="45" value="<%=resume.country%>"><br>
+                         <label for="linkedin">Linkedin URL:</label>
+                         <input type="url" id="linkedin" name="linkedin" placeholder="https://www.LinkedIn.com" maxlength="200" value="<%=resume.linkedin%>"><br>
+
+                         <label for="github">Github URL:</label>
+                         <input type="url" id="github" name="github" placeholder="https://www.GitHub.com/username" maxlength="200" value="<%=resume.github%>"><br>
+                         <label for="personalWebsite">Personal Website URL:</label>
+                         <input type="url" id="personalWebsite" name="personalWebsite" placeholder="https://MyWebsite.com" maxlength="200" value="<%=resume.personalWebsite%>"><br>
+                       </div>
+                       <div class="section-buttons">
+                         <button class="prev-btn" data-previous="educationalInformation" disabled>Previous</button>
+                                                    &nbsp;
+                         <button class="next-btn" data-next="educationalInformation">Next</button>
+                       </div>
+                     </div>
+                   </section>
+
+                   <section id="educationalInformation" class="form-section hidden">
+                     <h2>Educational Information</h2>
+                     <div id="educationSection">
+                       <div class="educationEntry">
+                         <label for="instituteNameEdu">Institute Name:<span class="required">*</span></label>
+                         <input type="text" id="instituteNameEdu" name="instituteNameEdu" required placeholder="CSU, Monterey Bay" maxlength="100" value="<%=resume.instituteNameEdu%>"><br>
+                         <label for="zipcodeEdu">Zipcode:</label>
+                         <input type="text" id="zipcodeEdu" name="zipcodeEdu" placeholder="93955" value="<%=resume.zipcodeEdu%>"><br>
+                         <span id="zipcodeEduError"></span>
+
+                         <label for="cityEdu">City:<span class="required">*</span></label>
+                         <input type="text" id="cityEdu" name="cityEdu" placeholder="Seaside" maxlength="45" value="<%=resume.cityEdu%>"><br>
+                         <label for="stateEdu">State:</label>
+                         <input type="text" id="stateEdu" name="stateEdu" placeholder="California" maxlength="45" value="<%=resume.stateEdu%>"><br>
+                         <label for="countryEdu">Country:</label>
+                         <input type="text" id="countryEdu" name="countryEdu" placeholder="United States" maxlength="45" value="<%=resume.countryEdu%>"><br>
+                         <label for="degreeEdu">Degree:<span class="required">*</span></label>
+                         <input type="text" id="degreeEdu" name="degreeEdu" required placeholder="Bachelors of Science" maxlength="100" value="<%=resume.degreeEdu%>"><br>
+                         <label for="majorEdu">Major:<span class="required">*</span></label>
+                         <input type="text" id="majorEdu" name="majorEdu" required placeholder="Computer Science" maxlength="100" value="<%=resume.majorEdu%>"><br>
+                         <label for="dateAttendedEdu">Date Attended:<span class="required">*</span></label>
+                         <input type="date" id="dateAttendedEdu" name="dateAttendedEdu" required value="<%=resume.dateAttendedEdu%>"><br>
+
+                         <label for="dateGraduatedEdu">Date Graduated:<span class="required">*</span></label>
+                         <input type="date" id="dateGraduatedEdu" name="dateGraduatedEdu" required value="<%=resume.dateGraduatedEdu%>"><br>
+                         <label for="gpaEdu">GPA:</label>
+                         <input type="text" id="gpaEdu" name="gpaEdu" placeholder="4.00" value="<%=resume.gpaEdu%>"><br>
+                       </div>
+                       <div class="section-buttons">
+                         <button class="prev-btn" data-previous="generalInformation">Previous</button>
+                         <button class="next-btn" data-next="certificationInformation">Next</button>
+                       </div>
+                     </div>
+                   </section>
+
+                   <section id="certificationInformation" class="form-section hidden">
+                     <h2>Certifications</h2>
+                     <div id="certificationSection">
+                       <div class="certificationEntry">
+                         <label for="instituteNameCert">Institute Name:</label>
+                         <input type="text" id="instituteNameCert" name="instituteNameCert" placeholder="CompTIA" maxlength="100" value="<%=resume.instituteNameCert%>"><br>
+
+                         <label for="zipcodeCert">Zipcode:</label>
+                         <input type="text" id="zipcodeCert" name="zipcodeCert" placeholder="60515" value="<%=resume.zipcodeCert%>"><br>
+                         <span id="zipcodeCertError"></span>
+
+                         <label for="cityCert">City:</label>
+                         <input type="text" id="cityCert" name="cityCert" placeholder="Chicago" maxlength="45" value="<%=resume.cityCert%>"><br>
+                         <label for="stateCert">State:</label>
+                         <input type="text" id="stateCert" name="stateCert" placeholder="Illinois" maxlength="45" value="<%=resume.stateCert%>"><br>
+                         <label for="countryCert">Country:</label>
+                         <input type="text" id="countryCert" name="countryCert" placeholder="United States" maxlength="45" value="<%=resume.countryCert%>"><br>
+                         <label for="certificate">Certificate:<span class="required">*</span></label>
+                         <input type="text" id="certificate" name="certificate" required placeholder="Security+" maxlength="100" value="<%=resume.certificate%>"><br>
+                         <label for="dateCert">Date Earned:<span class="required">*</span></label>
+                         <input type="date" id="dateCert" name="dateCert" required value="<%=resume.dateCert%>"><br>
+
+                         <label for="expireCert">Expiration Date:<span class="required">*</span></label>
+                         <input type="date" id="expireCert" name="expireCert" required value="<%=resume.expireCert%>"><br>
+                       </div>
+                       <div class="section-buttons">
+                         <button class="prev-btn" data-previous="educationalInformation">Previous</button>
+                         <button class="next-btn" data-next="skillInformation">Next</button>
+                       </div>
+                     </div>               
+                   </section>
+
+                   <section id="skillInformation" class="form-section hidden">
+                     <h2>Skills</h2>
+                     <div id="skillInformationSection">
+                       <div id="skillSearchEntry">
+                         <div id="selectedSkills"></div>
+                         <div id="skillSearchWrapper">
+                           <input type="text" id="skillSearch" name="skillSearch" placeholder="Search for Skills" maxlength="100" value="<%=resume.skillSearch%>">
+                             <div id="skillResults"></div>
+                         </div>
+                       </div>
+
+                       <div class="section-buttons">
+                         <button class="prev-btn" data-previous="certificationInformation">Previous</button>
+                         <button class="next-btn" data-next="experienceInformation">Next</button>
+                       </div>
+                     </div>
+                   </section>
+
+
+                   <section id="experienceInformation" class="form-section hidden">
+                     <h2>Experience</h2>
+                     <div id="experienceSection">
+                       <div class="experienceEntry">
+                         <label for="employer">Employer:<span class="required">*</span></label>
+                         <input type="text" id="employer" name="employer" required placeholder="Microsoft" maxlength="100" value="<%=resume.employer%>"><br>
+                         <label for="zipcodeExp">Zipcode:</label>
+                         <input type="text" id="zipcodeExp" name="zipcodeExp" placeholder="98052" value="<%=resume.zipcodeExp%>"><br>
+                         <span id="zipcodeExpError"></span>
+
+                         <label for="cityExp">City:</label>
+                         <input type="text" id="cityExp" name="cityExp" placeholder="Redmond" maxlength="45" value="<%=resume.cityExp%>"><br>
+                         <label for="stateExp">State:</label>
+                         <input type="text" id="stateExp" name="stateExp" placeholder="Washington" maxlength="45" value="<%=resume.stateExp%>"><br>
+                         <label for="countryExp">Country:</label>
+                         <input type="text" id="countryExp" name="countryExp" placeholder="United States" maxlength="45" value="<%=resume.countryExp%>"><br>
+                         <label for="position">Position:<span class="required">*</span></label>
+                         <input type="text" id="position" name="position" required placeholder="Web Developer" maxlength="100" value="<%=resume.position%>"><br>
+                         <label for="startDate">Start Date:<span class="required">*</span></label>
+                         <input type="date" id="startDate" name="startDate" required value="<%=resume.startDate%>"><br>
+
+                         <label for="endDate">End Date:<span class="required">*</span></label>
+                         <input type="date" id="endDate" name="endDate" required value="<%=resume.endDate%>"><br>
+
+                         <label for="description">Description:</label>
+                         <textarea id="description" name="description" rows="4" placeholder="Enter a description of your work experience" maxlength="5000"><%=resume.description%></textarea><br>          
+                       </div>
+                       <div class="section-buttons">
+                         <button class="prev-btn" data-previous="skillInformation">Previous</button>
+                         <button class="next-btn" data-next="objectiveInformation">Next</button>
+                       </div>
+                     </div>                
+                   </section>
+
+                   <section id="objectiveInformation" class="form-section hidden">
+                     <h2>Career Objective</h2>
+                     <div id="careerObjectiveSection">
+                       <div id="careerObjectiveEntry">
+                         <label for="careerObjective">Your Objective:<span class="required">*</span></label><br>
+                         <textarea id="careerObjective" name="careerObjective" rows="4" required placeholder="Enter your objective for employment" maxlength="1000"><%=resume.careerObjective%></textarea>
+                         <br>
+                       </div>
+                       <div class="section-buttons">
+                       <button class="prev-btn" data-previous="experienceInformation">Previous</button>
+                       <button class="next-btn" data-next="saveInformation">Next</button>
+                     </div>
+                   </div>         
+                 </section>
+
+                 <section id="saveInformation" class="form-section hidden">
+                   <h2>Save Your Resume</h2>
+                   <div id="saveInformationSection">
+                     <div id="saveInformationEntry">
+                       <label for="resumeName">Resume Name:<span class="required">*</span></label>
+                       <input type="text" id="resumeName" name="resumeName" required placeholder="Web Developer Resume" maxlength="100" value="<%=resume.resumeName%>"><br>
+                     </div>
+                     <div class="section-buttons">
+                       <button class="prev-btn" data-previous="objectiveInformation">Previous</button>
+                       <button type="submit" id="saveButton">Save Resume</button>
+                       <button class="next-btn" data-next="educationalInformation" disabled>Next</button>
+                     </div>
+                   </div>                
+                 </section>
+               </form>
+               <br/>
+               <% if (typeof message != "undefined") { %>
+               <div id="message"><%= message %></div>
+               <br>
+               <% } %>
+             </div>
+           </div>
+         </div>
+         <%- include("partials/footer.ejs") %>
+         <script src="/js/editResume.js"></script>
+       </body>
+     </html>
+
+-->

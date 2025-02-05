@@ -1,0 +1,50 @@
+@page {
+  size: letter portrait;
+}
+#print {
+  display: none;
+}
+body:after {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  content: "resume2Success © 2023";
+  font-size: 10pt;
+  color: gray;
+}
+
+/*
+@page {
+  size: letter portrait;
+  @bottom-right {
+    content: "Page: " counter(page);
+    font-weight: bold;
+    font-size: 11pt;
+    color: gray;
+  }
+  @bottom-left {
+    content: "resume2Success © 2023";
+    font-size: 11pt;
+    color: gray;
+  }
+}
+*/
+
+/*
+.page:before {
+  counter-reset: page;
+}
+.page {
+  counter-increment: page;
+}
+.page:after {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  content: "Page: " counter(page);
+  font-size: 11pt;
+  color: gray;
+}
+*/
+

@@ -1,0 +1,51 @@
+<%- include("partials/header.ejs") %>
+  <body>
+    <div id="application">
+      <div id="menu">
+        <img id="menuLogo" src="/img/rs.png" alt="resume2Success">
+        <div id="upperMenuItems">
+          <a class="menuItem" id="addResume" href="/resume/add">New Resume</a>
+        </div>
+        <div id="lowerMenuItems">
+          <a class="menuItem" id="passwordChange" href="/passwordChange">Password Change</a><br>
+          <a class="menuItem" id="logout" href="/sessionDestroy">Logout</a>
+        </div>
+        <br/>
+      </div>
+      <div id="content">
+        <div id="mainArea">
+          <div id="sectionHeader">
+            <h1 id="headerTitle">Welcome <%=username%></h1>
+            <input id="usernameValue" name="usernameValue" type="hidden" value="<%=username%>">
+          </div>
+          <div id="resumeList">
+            <span id="listTitle">Your Resumes:</span><br><br/>
+            <% if ((typeof resumes != "undefined") && (resumes.length > 0)) { %>
+              <% for (resume of resumes) { %>
+                <div id="resumeItem">
+                  <div id="resumeSelector">
+                    <input type="radio" id="resumeRadio" name="resumeRadio" value='<%=resume.resumeId%>'>
+                  </div>
+                  <div id="resumeInfo">
+                    <div id="resumeDate"><%=resume.date%>:</div>
+                    <div id="resumeName"><%=resume.resumeName%></div>
+                  </div>
+                </div>
+              <% } %>
+            <% } else { %>
+              <div id="resumeInfo">No resume found.</div>
+            <% } %>          
+          </div>
+        <br/>
+        </div>
+        <div id="resumeOperations"></div>
+        <br/>
+        <% if (typeof message != "undefined") { %>
+          <div id="message"><%= message %></div><br>
+        <% } %>
+      </div>
+    <script src="/js/dashboard.js"></script>
+    </div>
+  <%- include("partials/footer.ejs") %>
+  </body>
+</html>

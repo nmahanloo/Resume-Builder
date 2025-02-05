@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+  <body>
+    <div id="application">
+      <div id="content">
+        <div id="mainArea">
+          <div id="pageTitle">
+            <img id="titleLogo" src="/img/rs.png" alt="resume2Success">
+          </div>
+          <div id="sectionTitle">Welcome</div><br>
+          <form class="forms" method="POST" action="/">
+            <span class="itemName">Username:</span>
+            <input type="text" id="username" name="username"><br>
+            <span class="itemName">Password:</span>
+            <input type="password" id="password" name="password"><br><br>
+            <div class="formButton">
+              <button id="loginButton">Login</button><br>
+            </div>
+          </form>
+          <br/>
+          <% if (typeof message != "undefined") { %>
+            <div id="message"><%= message %></div><br>
+          <% } %>
+          <a id="signupLink" href="/signup">Sign up!</a>
+          <br><br/>
+        </div>
+      </div>
+      <script src="/js/login.js"></script>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

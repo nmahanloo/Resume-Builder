@@ -1,0 +1,235 @@
+<%- include("partials/headerPrint.ejs") %>
+  <body>
+    <button id="print">Print</button>
+    <div id="pageContent" class="page">
+      <div id="generalInfo" class="sections">
+        <div id="generalMain">
+          <div id="name" class="item">
+            <%=general[0].firstName%> <%=general[0].lastName%>
+          </div>
+          <div id="location" class="item">
+            <% if ((typeof general[0].city != "undefined") || (typeof general[0].state != "undefined") || (typeof general[0].country != "undefined")) { %>
+              <% if ((typeof general[0].city != "undefined") && (typeof general[0].state != "undefined") && (general[0].city.length > 0) && (general[0].state.length > 0)) { %>
+                <%=general[0].city%>,
+              <% } else if ((typeof general[0].city != "undefined") && (typeof general[0].country != "undefined") && (general[0].city.length > 0) && (general[0].country.length > 0)) { %>
+                <%=general[0].city%>,
+              <% } else if ((typeof general[0].city != "undefined") && (general[0].city.length > 0)) { %>
+                <%=general[0].city%>
+              <% } %>
+              <% if ((typeof general[0].state != "undefined") && (typeof general[0].country != "undefined") && (general[0].state.length > 0) && (general[0].country.length > 0)) { %>
+                <%=general[0].state%>,
+              <% } else if ((typeof general[0].state != "undefined") && (general[0].state.length > 0)) { %>
+                <%=general[0].state%>
+              <% } %>
+              <% if ((typeof general[0].country != "undefined") && (general[0].country.length > 0)) { %>
+                <%=general[0].country%>
+              <% } %>
+            <% } %>
+          </div>
+          <div id="phoneNum" class="item">
+            <%=phone%>
+          </div>
+        </div>
+        <div id="generalPartial">
+          <div id="partialInfo">
+            <% if ((typeof general[0].email != "undefined") && (general[0].email.length > 0)) { %>
+              <div id="email" class="item">
+                <%=general[0].email%>
+              </div>
+            <% } %>
+            <% if  ((typeof general[0].linkedin != "undefined") &&(general[0].linkedin.length > 0)) { %>
+              <div id="linkedin" class="item">
+                <%=general[0].linkedin%>
+              </div>
+            <% } %>
+            <% if ((typeof general[0].github != "undefined") &&(general[0].github.length > 0)) { %>
+              <div id="github" class="item">
+                <%=general[0].github%>
+              </div>
+            <% } %>
+            <% if ((typeof general[0].other != "undefined") && (general[0].other.length > 0)) { %>
+              <div id="other" class="item">
+                <%=general[0].other%>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <div id="headerDivider"></div>
+      <div id="objectiveInfo" class="sections">
+        <div id="objectiveTitle" class="title">Objective:</div>
+        <div id="objective" class="paragraph">
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=general[0].objective%>
+        </div>
+      </div>
+      <% if  ((typeof educations != "undefined") && (educations.length > 0)) { %>
+        <div class="divider"></div>
+        <div id="educationInfo" class="sections">
+          <div id="educationTitle" class="title">Educations:</div>
+          <% for (education of educations) { %>
+            <div name="educationRow" class="row">
+              <div class="degree">
+                <%=education.degree%> in <%=education.major%>
+              </div>
+              <div class="institute">
+                <%=education.name%>
+              </div>
+              <div class="instituteLocation">
+                <% if ((typeof education.city != "undefined") || (typeof education.state != "undefined") || (typeof education.country != "undefined")) { %>
+                  <% if ((typeof education.city != "undefined") && (typeof education.state != "undefined") && (education.city.length > 0) && (education.state.length > 0)) { %>
+                    <%=education.city%>,
+                  <% } else if ((typeof education.city != "undefined") && (typeof education.country != "undefined") && (education.city.length > 0) && (education.country.length > 0)) { %>
+                    <%=education.city%>,
+                  <% } else if ((typeof education.city != "undefined") && (education.city.length > 0)) { %>
+                    <%=education.city%>
+                  <% } %>
+                  <% if ((typeof education.state != "undefined") && (typeof education.country != "undefined") && (education.state.length > 0) && (education.country.length > 0)) { %>
+                    <%=education.state%>,
+                  <% } else if ((typeof education.state != "undefined") && (education.state.length > 0)) { %>
+                    <%=education.state%>
+                  <% } %>
+                  <% if ((typeof education.country != "undefined")  && (education.country.length > 0)) { %>
+                    <%=education.country%>
+                  <% } %>
+                <% } %>
+              </div>
+              <div class="gpaSection">
+                <% if ((typeof education.gpa != "undefined") && (education.gpa != null)) { %>
+                  <span name="gpaTitle" class="item2">GPA: </span>
+                  <span name="gpa" class="item"><%=education.gpa%></span>
+                <% } %>
+              </div>
+              <div class="educationDate">
+                <% if (((typeof education.start != "undefined") && (education.start != null)) || ((typeof education.grad != "undefined") && (education.grad != null))) { %>
+                  <% if ((typeof education.start != "undefined") && (education.start != null)) { %>
+                    <%=education.start%> to 
+                  <% } %>
+                  <% if ((typeof education.grad != "undefined") && (education.grad != null)) { %>
+                    <%=education.grad%> 
+                  <% } %>
+                <% } %>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
+      <% if ((typeof certificates != "undefined") && (certificates.length > 0)) { %>
+        <div class="divider"></div>
+        <div id="certificateInfo" class="sections">
+          <div id="certificateTitle" class="title">Certificates:</div>
+          <% for (certificate of certificates) { %>
+            <div name="certificateRow" class="row">
+              <div name="certificate" class="degree">
+                <%=certificate.certificate%>
+              </div>
+              <div class="institute">
+                <% if ((typeof certificate.name != "undefined") &&(certificate.name.length > 0)) { %>
+                  <%=certificate.name%>
+                <% } %>
+              </div>
+              <div class="instituteLocation">
+                <% if ((typeof certificate.city != "undefined") || (typeof certificate.state != "undefined") || (typeof certificate.country != "undefined")) { %>
+                  <% if ((typeof certificate.city != "undefined") && (typeof certificate.state != "undefined") && (certificate.city.length > 0) && (certificate.state.length > 0)) { %>
+                    <%=certificate.city%>,
+                  <% } else if ((typeof certificate.city != "undefined") && (typeof certificate.country != "undefined") && (certificate.city.length > 0) && (certificate.country.length > 0)) { %>
+                    <%=certificate.city%>,
+                  <% } else if ((typeof certificate.city != "undefined") && (certificate.city.length > 0)) { %>
+                    <%=certificate.city%>
+                  <% } %>
+                  <% if ((typeof certificate.state != "undefined") && (typeof certificate.country != "undefined") && (certificate.state.length > 0) && (certificate.country.length > 0)) { %>
+                    <%=certificate.state%>,
+                  <% } else if ((typeof certificate.state != "undefined") && (certificate.state.length > 0)) { %>
+                    <%=certificate.state%>
+                  <% } %>
+                  <% if ((typeof certificate.country != "undefined")  && (certificate.country.length > 0)) { %>
+                    <%=certificate.country%>
+                  <% } %>
+                <% } %>
+              </div>
+              <div class="certDateSection">
+                <% if ((certificate.earn != "undefined") && (certificate.earn != null)) { %>
+                  <span name="certDateTitle" class="item2">Date: </span>
+                  <span name="certDate" class="item"><%=certificate.earn%></span>
+                <% } %>
+              </div>
+              <div class="certExpireSection">
+                <% if ((typeof certificate.expire != "undefined") && (certificate.expire != null)) { %>
+                  <span name="certExpireTitle" class="item2">Expire: </span>
+                  <span name="certExpire" class="item"><%=certificate.expire%></span>
+                <% } %>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
+      <% if ((typeof skills != "undefined") && (skills.length > 0)) { %>
+        <div class="divider"></div>
+        <div id="skillInfo" class="sections">
+          <div id="skillTitle" class="title">Skills:</div>
+          <div id="skillRow" class="row">
+            <% let x = 0; %>
+            <% for (let s = 0; s < skills.length; s++) { %>
+              <div class="skill">■ <%=skills[s].skill%></div>
+              <% x += 1; %>
+              <% if (x == 5) { %>
+                <br/>
+                <% x = 0; %>
+              <% } %>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+      <% if ((typeof experiences != "undefined") && (experiences.length > 0)) { %>
+        <div class="divider"></div>
+        <div id="experienceInfo" class="sections">
+          <div id="experienceTitle" class="title">Experiences:</div>
+          <% for (experience of experiences) { %>
+            <div name="experienceTitleRow" class="row">
+              <div class="job">
+                <span class="position" class="item">
+                  <%=experience.position%>
+                </span>
+                <span class="employer" class="item">
+                  at <%=experience.employer%>
+                </span>
+              </div>
+              <div class="experienceLocation">
+                <% if ((typeof experience.city != "undefined") || (typeof experience.state != "undefined") || (typeof experience.country != "undefined")) { %>
+                  <% if ((typeof experience.city != "undefined") && (typeof experience.state != "undefined") && (experience.city.length > 0) && (experience.state.length > 0)) { %>
+                    <%=experience.city%>,
+                  <% } else if ((typeof experience.city != "undefined") && (typeof experience.country != "undefined") && (experience.city.length > 0) && (experience.country.length > 0)) { %>
+                    <%=experience.city%>,
+                  <% } else if ((typeof experience.city != "undefined") && (experience.city.length > 0)) { %>
+                    <%=experience.city%>
+                  <% } %>
+                  <% if ((typeof experience.state != "undefined") && (typeof experience.country != "undefined") && (experience.state.length > 0) && (experience.country.length > 0)) { %>
+                    <%=experience.state%>,
+                  <% } else if ((typeof experience.state != "undefined") && (experience.state.length > 0)) { %>
+                    <%=experience.state%>
+                  <% } %>
+                  <% if ((typeof experience.country != "undefined")  && (experience.country.length > 0)) { %>
+                    <%=experience.country%>
+                  <% } %>
+                <% } %>
+              </div>
+              <div class="experienceDate">
+                <% if ((typeof experience.start != "undefined") && (experience.start != null)) { %>
+                  <%=experience.start%> to
+                <% } %>
+                <% if ((typeof experience.end != "undefined") && (experience.end != null)) { %>
+                  <%=experience.end%>
+                <% } %>
+              </div>
+            </div>
+            <div name="expDescription" class="paragraph2">
+              <!--% for (let j=0; j<30; j++) { %-->
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=experience.description%>
+              <!--% } %-->
+            </div>
+          <% } %>
+        </div>
+      <% } %>
+    <script src="/js/displayResume.js"></script>
+    </div>
+  </body>
+</html>

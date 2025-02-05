@@ -1,0 +1,252 @@
+html {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 12pt;
+  justify-content: center;
+  min-width: 22cm;
+  width: 22cm;
+  max-width: 22cm;
+  min-height: 28cm;
+  height: 28cm;
+  max-height: 28cm;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page {
+  position: absolute;
+  background-color: white;
+  width: inherit;
+  length: inherit;
+  /*
+  page-break-after: always;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-top: 2cm;
+  margin-bottom: 2cm
+  */
+}
+
+#generalInfo {
+  /*background-color: lightgray;*/
+  display: flex;
+  line-height: 20px;
+}
+
+#generalMain {
+  float: left;
+  line-height: 28px;
+}
+
+#generalPartial {
+  flex-grow: 1;
+}
+
+#partialInfo {
+  float:right;
+}
+
+#name {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+#location {
+  font-size: 12pt;
+}
+
+#phoneNum {
+  font-size: 14pt;
+}
+
+#headerDivider {
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background-color: lightgray;
+}
+
+
+.divider {
+  width: 30%;
+  height: 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  /*background-color: lightgray; */
+}
+
+.sections {
+  line-height: 20px;
+}
+
+.title {
+  padding-bottom: 10px;
+  font-size: 15pt;
+  font-weight: bold;
+}
+
+.paragraph {
+  text-align: justify;
+  line-height: 25px;
+}
+
+.paragraph2 {
+  text-align: justify;
+  line-height: 25px;
+  padding-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  flex-wrap: wrap;
+  line-height: 25px;
+}
+
+.degree {
+  /*background-color: lightgreen;*/
+  min-width: 210px;
+  width: 210px;
+  max-width: 210px;
+  font-weight: bold;
+}
+
+.institute {
+  /*background-color: lightseagreen;*/
+  min-width: 195px;
+  width: 195px;
+  max-width: 195px;
+  font-style: italic;
+}
+
+.instituteLocation {
+  /*background-color: lightcoral;*/
+  min-width: 160px;
+  width: 160px;
+  max-width: 160;
+  font-size: 11pt;
+}
+
+.gpaSection {
+  /*background-color: lightpink;*/
+  min-width: 72px;
+  width: 72px;
+  max-width: 72px;
+  font-size: 11pt;
+  text-align: center;
+}
+
+.educationDate {
+  /*background-color: lightblue;*/
+  min-width: 194px;
+  width: 194px;
+  max-width: 194px;
+  text-align: right;
+  font-size: 11pt;
+}
+
+.certDateSection {
+  /*background-color: lightblue;*/
+  min-width: 130px;
+  width: 130px;
+  max-width: 130px;
+  text-align: center;
+  font-size: 11pt;
+}
+
+.certExpireSection {
+  /*background-color: lightpink;*/
+  min-width: 136px;
+  width: 136px;
+  max-width: 136px;
+  text-align: right;
+  font-size: 11pt;
+}
+
+#skillRow {
+  flex-wrap: wrap;
+}
+
+.skill {
+  /*background-color: lightgreen;*/
+  min-width: 166px;
+  width: 166px;
+  max-width: 166px;
+}
+
+.job {
+  /* background-color: lightgreen;*/
+  min-width: 430px;
+  width: 430px;
+  max-width: 430px;
+}
+
+.position {
+  font-weight: bold;
+}
+
+.employer {
+  font-style: italic;
+}
+
+.experienceLocation {
+  /* background-color: lightcoral; */
+  min-width: 201px;
+  width: 201px;
+  max-width: 201px;
+  text-align: right;
+  font-size: 11pt;
+}
+
+.experienceDate {
+  /* background-color: lightblue; */
+  min-width: 200px;
+  width: 200px;
+  max-width: 200px;
+  text-align: right;
+  font-size: 11pt;
+}
+
+#print {
+  margin-left: 45%;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-family: 'Recursive', sans-serif;
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: darkblue;
+  font-size: 14pt;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+#print:hover {
+  font-family: 'Recursive', sans-serif;
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: blue;
+  font-size: 14pt;
+  font-weight: bold;
+  color: white;
+}
+
+/*
+footer:after {
+    bottom: 0;
+    counter-increment: page;
+    content: counter(page);
+}
+*/
